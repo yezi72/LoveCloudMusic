@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta property="" content="">
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <title>仿网易云PC端</title>
+        <link rel="shortcut icon" href="images/icon/music.ico">
+
+        <!--css-->
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="css/reset.css">
+        <link rel="stylesheet" type="text/css" href="css/scrollbar.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <!--jquery-->
+        <script type="text/javascript" src="libs/jquery-3.1.1.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <!--/*****************************头部******************************************/-->
+            <header role="banner" class="top-menu clearfix">
+                <nav role="navigation">
+                    <div class="menu-logo vertical">
+                        <a href="http://music.163.com/" target="_blank"><img src="images/logo/netease-logo.png" alt=""></a>
+                    </div>
+                    <div class="menu-btn vertical">
+                        <a href="javascript:void(0);" class="btn-back"><i class="fa fa-angle-left" aria-hidden="true" title="后退"></i></a>
+                        <a href="javascript:void(0);" class="btn-forward"><i class="fa fa-angle-right" aria-hidden="true" title="前进"></i></a>
+                    </div>
+                    <div class="menu-search vertical">
+                            <input type="text" class="search-input" id="searchInput" placeholder="搜索音乐，歌词，歌手，用户">
+                            <span class="search-btn" id="searchBtn"><i class="fa fa-search" aria-hidden="true"></i></span>
+                    </div>
+                    <div class="menu-img vertical"><img src="images/image/menu-img.jpg" alt=""></div>
+                    <span class="menu-user vertical">叶子72&nbsp;&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></span>
+                    <div class="menu-setting vertical">
+                        <img src="images/icon/skin.png" alt="">
+                        <img src="images/icon/email.png" alt="">
+                        <img src="images/icon/setting.png" alt="" title="设置">
+                    </div>
+                    <div class="menu-close vertical">
+                        <img src="images/icon/narrow.png" alt="" title="mini模式（Ctrl+M）">
+                        <img src="images/icon/min.png" alt="" title="最小化">
+                        <img src="images/icon/max.png" alt="" title="最大化">
+                        <img src="images/icon/close.png" alt="" title="关闭">
+                    </div>
+
+                    <!--=========弹出窗口==============-->
+                    <!--搜索区-->
+                    <div class="menu-search-tag">
+                        <p>热门搜索</p>
+                        <ul>
+                            <li>欢乐颂2</li>
+                            <li>Ed Sheeran</li>
+                            <li>PSY</li>
+                            <li>爱河</li>
+                            <li>莫斯科没有眼泪</li>
+                            <li>王者荣耀</li>
+                            <li>陈冠希</li>
+                            <li>天空之城</li>
+                            <li>周杰伦</li>
+                            <li>许嵩</li>
+                        </ul>
+                    </div>
+                    <!--用户区-->
+                    <div class="menu-user-tag">
+                        <!--头部信息-->
+                        <div class="user-tag-info">
+                            <div class="tag-info-img">
+                                <img src="images/image/menu-img.jpg" alt="">
+                                <span>叶子72</span>
+                            </div>
+                            <div class="tag-info-sign">签到</div>
+                            <ul>
+                                <li>
+                                    <p>0</p>
+                                    <p>动态</p>
+                                </li>
+                                <li>
+                                    <p>4</p>
+                                    <p>关注</p>
+                                </li>
+                                <li>
+                                    <p>1</p>
+                                    <p>粉丝</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--主体信息-->
+                        <div class="user-tag-main">
+                            <ul class="user-tag-VIP">
+                                <li>
+                                    <div>
+                                        <img src="images/icon/01.png">
+                                        <span>会员中心</span>
+                                    </div>
+                                    <span>未定购&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                                </li>
+                                <li>
+                                    <div>
+                                        <img src="images/icon/02.png">
+                                        <span>等级</span>
+                                    </div>
+                                    <span><em><strong>Lv.6</strong></em>&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                                </li>
+                                <li>
+                                    <div>
+                                        <img src="images/icon/03.png">
+                                        <span>积分商城</span>
+                                    </div>
+                                    <span><strong>11</strong>&nbsp;积分&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                                </li>
+                            </ul>
+                            <ul class="user-tag-setting">
+                                <li>
+                                    <div>
+                                        <img src="images/icon/04.png">
+                                        <span>个人信息设置</span>
+                                    </div>
+                                    <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                                </li>
+                                <li>
+                                    <div>
+                                        <img src="images/icon/05.png">
+                                        <span>绑定社交帐号</span>
+                                    </div>
+                                    <span>
+                                        <img src="images/icon/weibo.png" alt="" title="新浪微博">
+                                        <img src="images/icon/yixin.png" alt="" title="易信">
+                                        &nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i>
+                                    </span>
+                                </li>
+                                <li>
+                                    <div>
+                                        <img src="images/icon/06.png">
+                                        <span>导入歌单</span>
+                                    </div>
+                                    <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--底部信息-->
+                        <div class="user-tag-exit">
+                                <div>
+                                    <img src="images/icon/07.png">
+                                    <span>退出登录</span>
+                                </div>
+                                <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+
+            <!--/********************************/主体内容/*********************************/-->
+            <!--左侧列表-->
+            <section class="page-list">
+                <div class="list-container" id="listContainer">
+                    <div class="list list-recommend">
+                        <p class="title">推荐</p>
+                        <div class="btn-groups">
+                            <p class="btn find"><i class="fa fa-music" aria-hidden="true"></i>&nbsp;&nbsp;发现音乐</p>
+                            <p class="btn fm"><i class="fa fa-bullseye" aria-hidden="true"></i>&nbsp;&nbsp;私人FM</p>
+                            <p class="btn mv"><i class="fa fa-youtube-play" aria-hidden="true"></i>&nbsp;&nbsp;MV</p>
+                            <p class="btn friends"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;&nbsp;朋友</p>
+                        </div>
+                    </div>
+                    <div class="list list-mine">
+                        <p class="title">我的音乐</p>
+                        <div class="btn-groups">
+                            <p class="btn local"><i class="fa fa-music" aria-hidden="true"></i>&nbsp;&nbsp;本地音乐</p>
+                            <p class="btn download"><i class="fa fa-download" aria-hidden="true"></i>&nbsp;&nbsp;下载管理</p>
+                            <p class="btn cloud"><i class="fa fa-cloud" aria-hidden="true"></i>&nbsp;&nbsp;我的音乐云盘</p>
+                            <p class="btn singer"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;&nbsp;我的歌手</p>
+                            <p class="btn my-mv"><i class="fa fa-youtube-play" aria-hidden="true"></i>&nbsp;&nbsp;我的MV</p>
+                            <p class="btn my-fm"><i class="fa fa-bullhorn" aria-hidden="true"></i>&nbsp;&nbsp;我的电台</p>
+                        </div>
+                    </div>
+                    <div class="list list-create">
+                        <p class="title" title="收起" id="titleCreate">创建的歌单
+                            <span class="title-btn-groups">
+                                <a href="javascript:void(0);" class="btn add-list" id="addList"><i class="fa fa-plus-circle" aria-hidden="true" title="创建歌单"></i></a>
+                                <a href="javascript:void(0);" class="btn unfold-list"><i class="fa fa-angle-down" aria-hidden="true" title="收起"></i></a>
+                            </span>
+                        </p>
+                        <div class="btn-groups">
+                            <p class="btn favorite"><i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp;&nbsp;我喜欢的音乐</p>
+                            <p class="btn creat-songsheet01"><i class="fa fa-music" aria-hidden="true"></i>&nbsp;&nbsp;无法长大</p>
+                            <p class="btn creat-songsheet02"><i class="fa fa-music" aria-hidden="true"></i>&nbsp;&nbsp;赵雷</p>
+                        </div>
+                    </div>
+                    <div class="list list-collect">
+                        <p class="title" title="收起" id="titleCollect">收藏的歌单
+                            <span class="title-btn-groups">
+                                <a href="javascript:void(0);" class="btn unfold-list"><i class="fa fa-angle-down" aria-hidden="true" title="收起"></i></a>
+                            </span>
+                        </p>
+                        <div class="btn-groups">
+                            <p class="btn collect-songsheet01"><i class="fa fa-music" aria-hidden="true"></i>&nbsp;&nbsp;|经典怀旧|老留声机里的深情往事</p>
+                            <p class="btn collect-songsheet02"><i class="fa fa-music" aria-hidden="true"></i>&nbsp;&nbsp;|节奏控|那些超带感的音乐</p>
+                            <p class="btn collect-songsheet02"><i class="fa fa-music" aria-hidden="true"></i>&nbsp;&nbsp;|感动|那些年追过的国产电视原声</p>
+                            <p class="btn collect-songsheet02"><i class="fa fa-music" aria-hidden="true"></i>&nbsp;&nbsp;入耳便爱上的英文歌</p>
+                            <p class="btn collect-songsheet03"><i class="fa fa-music" aria-hidden="true"></i>&nbsp;&nbsp;古风中国风</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!--左侧播放小窗口-->
+                <div class="list-window clearfix">
+                    <div class="poster" id="expandPlayBox" title="展开音乐详情页">
+                        <img src="images/image/source/01.jpg" alt="" id="songPicture">
+                        <div class="poster-hover"><i class="fa fa-expand" aria-hidden="true"></i></div>
+                    </div>
+                    <div class="info">
+                        <p class="song-name" id="songName" title="成都">成都</p>
+                        <p class="singer-name" id="singerName">赵雷</p>
+                    </div>
+                    <div class="btn-groups">
+                        <p class="btn collect"><i class="fa fa-heart-o" aria-hidden="true" title="喜欢"></i></p>
+                        <p class="btn share"><i class="fa fa-share-square-o" aria-hidden="true" title="分享"></i></p>
+                    </div>
+                </div>
+            </section>
+
+            <!--//////////////////////////页面右侧多页内容///////////////////////////-->
+            <section class="page-main">
+                <header role="banner" class="page-banner" id="pageBanner">
+                    <ul>
+                        <li>个性推荐</li>
+                        <li>歌单</li>
+                        <li>主播电台</li>
+                        <li>排行榜</li>
+                        <li>歌手</li>
+                        <li>最新音乐</li>
+                    </ul>
+                </header>
+                <!-- 右侧首页//个性推荐 pageHome-->
+                <div class="page-home">
+                    <!--轮播图-->
+                    <div class="page-home-wrap clearfix" id="pageHomeWrap">
+                        <div class="slide" id="slide">
+                            <ul>
+                                <li><a href="#"><img src="images/page/home-page/first/01.png" alt=""></a></li>
+                                <li><a href="#"><img src="images/page/home-page/first/02.png" alt=""></a></li>
+                                <li><a href="#"><img src="images/page/home-page/first/03.png" alt=""></a></li>
+                                <li><a href="#"><img src="images/page/home-page/first/04.png" alt=""></a></li>
+                                <li><a href="#"><img src="images/page/home-page/first/05.png" alt=""></a></li>
+                                <li><a href="#"><img src="images/page/home-page/first/06.png" alt=""></a></li>
+                                <li><a href="#"><img src="images/page/home-page/first/07.png" alt=""></a></li>
+                                <li><a href="#"><img src="images/page/home-page/first/08.png" alt=""></a></li>
+                            </ul>
+                            <div class="mask" id="mask">
+                                <div class="arrow" id="arrow">
+                                    <a href="javascript:void(0);" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+                                    <a href="javascript:void(0);" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn" id="btn" style="visibility: hidden">
+                            <ul>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--推荐歌单-->
+                    <p class="page-home-title clearfix">推荐歌单
+                        <span>更多<i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                    </p>
+                    <div class="home-title-sheet">
+                        <div class="title-sheet">
+                            <div class="sheet">
+                                <img src="images/page/home-page/second/01.png" alt="">
+                                <div class="sheet-text">根据你的音乐口味生成每日更新</div>
+                            </div>
+                            <span>每日歌曲推荐</span>
+                        </div>
+                        <div class="title-sheet">
+                            <div class="sheet">
+                                <img src="images/page/home-page/second/02.png" alt="">
+                                <div class="sheet-text">编辑推荐:那些被遗忘的美好时光</div>
+                                <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                            </div>
+                            <span>爸爸的录音机|怀旧华语</span>
+                        </div>
+                        <div class="title-sheet">
+                            <div class="sheet">
+                                <img src="images/page/home-page/second/03.png" alt="">
+                                <div class="sheet-text">编辑推荐:带你体验不一样的艺术天堂</div>
+                                <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                            </div>
+                            <span>「冷门佳曲」质感美学的艺术</span>
+                        </div>
+                        <div class="title-sheet">
+                            <div class="sheet">
+                                <img src="images/page/home-page/second/04.png" alt="">
+                                <div class="sheet-text">根据你收藏的歌单《|节奏控|那些超带感的音...</div>
+                                <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                            </div>
+                            <span>【玩游戏】&【抄作业】必备电音Buff</span>
+                        </div>
+                        <div class="title-sheet">
+                            <div class="sheet">
+                                <img src="images/page/home-page/second/05.png" alt="">
+                                <div class="sheet-text">根据你喜欢的单曲《只想一生跟你走》推荐</div>
+                                <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                            </div>
+                            <span>21世纪前十年经典老歌</span>
+                        </div>
+                        <div class="title-sheet">
+                            <div class="sheet">
+                                <img src="images/page/home-page/second/06.png" alt="">
+                                <div class="sheet-text">根据你喜欢的单曲《成都》推荐</div>
+                                <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                            </div>
+                            <span>【民谣】民谣是毒也是药</span>
+                        </div>
+                        <div class="title-sheet">
+                            <div class="sheet">
+                                <img src="images/page/home-page/second/07.png" alt="">
+                                <div class="sheet-text">根据你喜欢的单曲《我想，我想》推荐</div>
+                                <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                            </div>
+                            <span>愿你历经沧桑，仍有少年模样</span>
+                        </div>
+                        <div class="title-sheet">
+                            <div class="sheet">
+                                <img src="images/page/home-page/second/08.png" alt="">
+                                <div class="sheet-text">根据你喜欢的单曲《江湖写照》推荐</div>
+                                <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                            </div>
+                            <span>【武侠】尘世如潮人如水，只叹江湖几人回</span>
+                        </div>
+                        <div class="title-sheet">
+                            <div class="sheet">
+                                <img src="images/page/home-page/second/09.png" alt="">
+                                <div class="sheet-text">根据你喜欢的单曲《理想》推荐</div>
+                                <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                            </div>
+                            <span>旅行季歌谣|生命是用来挥霍的</span>
+                        </div>
+                        <div class="title-sheet">
+                            <div class="sheet">
+                                <img src="images/page/home-page/second/10.png" alt="">
+                                <div class="sheet-text">热门推荐</div>
+                                <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                            </div>
+                            <span>有些故事只说给懂的人听</span>
+                        </div>
+                    </div>
+
+                    <!--独家放送-->
+                    <p class="page-home-title clearfix">独家放送
+                        <span>更多<i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                    </p>
+                    <div class="home-title-movie">
+                        <div class="title-movie">
+                            <div class="movie"><img src="images/page/home-page/third/01.png" alt=""></div>
+                            <span>超级面对面 第132期 赵雷 : 面对全世界我还是个初学者</span>
+                        </div>
+                        <div class="title-movie">
+                            <div class="movie"><img src="images/page/home-page/third/02.png" alt=""></div>
+                            <span>独家专访 尚雯婕 : 惊艳！素人歌手超乎想象</span>
+                        </div>
+                        <div class="title-movie">
+                            <div class="movie"><img src="images/page/home-page/third/03.png" alt=""></div>
+                            <span>独家专访 姚晨 : 千万别为了去PK而唱歌</span>
+                        </div>
+                    </div>
+
+                    <!--最新音乐-->
+                    <p class="page-home-title clearfix">最新音乐
+                        <span>更多<i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                    </p>
+                    <table class="home-title-music">
+                        <tr>
+                            <td>
+                                <div>
+                                    <div class="music-order-number">01</div>
+                                    <div class="music-order-play">
+                                        <img src="images/page/home-page/fourth/01.png">
+                                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="music-order-info">
+                                        <p title="歌名">歌曲名称</p>
+                                        <p class="singer" title="歌手">歌手</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <div class="music-order-number">06</div>
+                                    <div class="music-order-play">
+                                        <img src="images/page/home-page/fourth/01.png">
+                                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="music-order-info">
+                                        <p title="歌名">歌曲名称</p>
+                                        <p class="singer" title="歌手">歌手</p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <div class="music-order-number">02</div>
+                                    <div class="music-order-play">
+                                        <img src="images/page/home-page/fourth/01.png">
+                                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="music-order-info">
+                                        <p title="歌名">歌曲名称</p>
+                                        <p class="singer" title="歌手">歌手</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <div class="music-order-number">07</div>
+                                    <div class="music-order-play">
+                                        <img src="images/page/home-page/fourth/01.png">
+                                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="music-order-info">
+                                        <p title="歌名">歌曲名称</p>
+                                        <p class="singer" title="歌手">歌手</p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <div class="music-order-number">03</div>
+                                    <div class="music-order-play">
+                                        <img src="images/page/home-page/fourth/01.png">
+                                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="music-order-info">
+                                        <p title="歌名">歌曲名称</p>
+                                        <p class="singer" title="歌手">歌手</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <div class="music-order-number">08</div>
+                                    <div class="music-order-play">
+                                        <img src="images/page/home-page/fourth/01.png">
+                                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="music-order-info">
+                                        <p title="歌名">歌曲名称</p>
+                                        <p class="singer" title="歌手">歌手</p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <div class="music-order-number">04</div>
+                                    <div class="music-order-play">
+                                        <img src="images/page/home-page/fourth/01.png">
+                                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="music-order-info">
+                                        <p title="歌名">歌曲名称</p>
+                                        <p class="singer" title="歌手">歌手</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <div class="music-order-number">09</div>
+                                    <div class="music-order-play">
+                                        <img src="images/page/home-page/fourth/01.png">
+                                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="music-order-info">
+                                        <p title="歌名">歌曲名称</p>
+                                        <p class="singer" title="歌手">歌手</p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <div class="music-order-number">05</div>
+                                    <div class="music-order-play">
+                                        <img src="images/page/home-page/fourth/01.png">
+                                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="music-order-info">
+                                        <p title="歌名">歌曲名称</p>
+                                        <p class="singer" title="歌手">歌手</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <div class="music-order-number">10</div>
+                                    <div class="music-order-play">
+                                        <img src="images/page/home-page/fourth/01.png">
+                                        <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="music-order-info">
+                                        <p title="歌名">歌曲名称</p>
+                                        <p class="singer" title="歌手">歌手</p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <!--推荐MV-->
+                    <p class="page-home-title clearfix">推荐MV
+                        <span>更多<i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                    </p>
+                    <div class="home-title-MV">
+                        <div class="title-MV">
+                            <img src="images/page/home-page/fifth/01.png">
+                            <div class="MV-info">编辑推荐:林志玲出演薛之谦MV,两人上演激情吻戏</div>
+                            <p class="MV-name">动物世界</p>
+                            <p class="MV-singer">薛之谦</p>
+                        </div>
+                        <div class="title-MV">
+                            <img src="images/page/home-page/fifth/02.png">
+                            <div class="MV-info">编辑推荐:视觉盛宴，水果姐竟然把自己做成了一道菜</div>
+                            <p class="MV-name">Bon Appetit</p>
+                            <p class="MV-singer">Katy Perry</p>
+                        </div>
+                        <div class="title-MV">
+                            <img src="images/page/home-page/fifth/03.png">
+                            <div class="MV-info">根据你喜欢的歌手“陈奕迅”推荐</div>
+                            <p class="MV-name">浮夸</p>
+                            <p class="MV-singer">陈奕迅</p>
+                        </div>
+                    </div>
+
+                    <!--主播电台-->
+                    <p class="page-home-title clearfix">主播电台
+                        <span>更多<i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                    </p>
+                    <div class="home-title-radio">
+                        <div class="title-radio">
+                            <div class="radio-play">
+                                <img src="images/page/home-page/sixth/01.png">
+                                <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                            </div>
+                            <div class="radio-info">
+                                <p class="radio-name">电台名称</p>
+                                <p class="radio-anchor">主播</p>
+                            </div>
+                        </div>
+                        <div class="title-radio">
+                            <div class="radio-play">
+                                <img src="images/page/home-page/sixth/02.png">
+                                <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                            </div>
+                            <div class="radio-info">
+                                <p class="radio-name">电台名称</p>
+                                <p class="radio-anchor">主播</p>
+                            </div>
+                        </div>
+                        <div class="title-radio">
+                            <div class="radio-play">
+                                <img src="images/page/home-page/sixth/03.png">
+                                <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                            </div>
+                            <div class="radio-info">
+                                <p class="radio-name">电台名称</p>
+                                <p class="radio-anchor">主播</p>
+                            </div>
+                        </div>
+                        <div class="title-radio">
+                            <div class="radio-play">
+                                <img src="images/page/home-page/sixth/04.png">
+                                <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                            </div>
+                            <div class="radio-info">
+                                <p class="radio-name">电台名称</p>
+                                <p class="radio-anchor">主播</p>
+                            </div>
+                        </div>
+                        <div class="title-radio">
+                            <div class="radio-play">
+                                <img src="images/page/home-page/sixth/05.png">
+                                <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                            </div>
+                            <div class="radio-info">
+                                <p class="radio-name">电台名称</p>
+                                <p class="radio-anchor">主播</p>
+                            </div>
+                        </div>
+                        <div class="title-radio">
+                            <div class="radio-play">
+                                <img src="images/page/home-page/sixth/06.png">
+                                <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                            </div>
+                            <div class="radio-info">
+                                <p class="radio-name">电台名称</p>
+                                <p class="radio-anchor">主播</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--首页底部-->
+                    <div class="page-home-footer">
+                        <p>现在可以根据个人喜好，自由调整首页栏目顺序啦~</p>
+                        <div class="home-footer-btn">调整栏目顺序</div>
+                    </div>
+                </div>
+
+
+                <!--右侧分页//歌单 page-songSheet-->
+                <div class="page-songSheet" id="pageSongSheet" style="display: none">该功能尚未上线，敬请期待~</div>
+
+                <!--右侧分页//主播电台 page-songSheet-->
+                <div class="page-radioStation" id="pageRadioStation" style="display: none">该功能尚未上线，敬请期待~</div>
+
+                <!--右侧分页//排行榜 page-songSheet-->
+                <div class="page-rankingList" id="pageRankingList" style="display: none">该功能尚未上线，敬请期待~</div>
+
+                <!--右侧分页//歌手 page-songSheet-->
+                <div class="page-singer" id="pageSinger" style="display: none">该功能尚未上线，敬请期待~</div>
+
+                <!--右侧分页//最新音乐 page-songSheet-->
+                <div class="page-latestMusic" id="pageLatestMusic" style="display: none">该功能尚未上线，敬请期待~</div>
+
+
+
+                <!--右侧分页//我喜欢的音乐-->
+                <div class="page-myFavorite">
+
+                </div>
+
+                <!--其他右侧分页-->
+            </section>
+
+            <!--/***********************************歌曲播放页面***************************************/-->
+            <section class="">
+
+            </section>
+
+            <!--/***********************************底部*********************************************/-->
+            <footer role="contentinfo" class="page-playerbar clearfix">
+                <!--播放控制按钮-->
+                <div class="play-btngroup vertical" id="playBtnGroup">
+                    <div class="btn prev" title="上一首（Ctrl+Left）"><i class="fa fa-step-backward" aria-hidden="true"></i></div>
+                    <div class="btn play" title="暂停（Ctrl+P）"><i class="fa fa-play" aria-hidden="true"></i></div>
+                    <div class="btn next" title="下一首（Ctrl+Right）"><i class="fa fa-step-forward" aria-hidden="true"></i></div>
+                </div>
+                <!--时间进度条-->
+                <div class="play-timeprogress vertical" id="timeProgressBox">
+                    <div class="progress-cache" id="progressCache"></div>
+                    <div class="progress-time" id="progressTime">
+                        <div class="progress-circle" id="progressCircle">
+                            <div class="progress-circle-dot" id="progressDot"></div>
+                        </div>
+                    </div>
+                    <div class="time start" id="audioCurrentTime">00:00</div>
+                    <div class="time end" id="audioDuration">59:59</div>
+                </div>
+                <!--音量控制条-->
+                <div class="play-soundprogress vertical">
+                    <div class="sound-btn" id="muteBtn" title="静音"><i class="fa fa-volume-up" aria-hidden="true"></i></div>
+                    <div class="progress-sound" id="soundProgressBox" title="音量调节（Ctrl+Up/Ctrl+Down）">
+                    <div class="progress-volume" id="progressVolume">
+                        <div class="progress-small-circle" id="progressSmallCircle">
+                            <div class="progress-circle-dot" id="progressSmallDot"></div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <!--其他-->
+                <div class="play-others vertical">
+                    <div class="other other-loop" id="otherLoop"><img src="images/icon/one.png" title="单曲循环"></div>
+                    <div class="other other-lyric" id="otherLyric"><img src="images/icon/lyric.png" title="打开歌词"></div>
+                    <!--<div class="others-" id="others"><img src=""></div>-->
+                </div>
+            </footer>
+
+            <!--播放器audio-->
+            <audio id="audio" src="">
+                您的该版本浏览器不支持AUDIO标签！
+            </audio>
+
+
+        </div>
+
+        <!--javascript-->
+        <script src="js/pageHomeAnimate.js"></script>
+        <script src="js/pageHomeLoop.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/player.js"></script>
+    </body>
+</html>
